@@ -1,0 +1,589 @@
+openapi: 3.0.3
+info:
+  title: GB - Real Estate
+  description: API relativa a gestão da imobiliária GB - Real Estate, onde é possível realizar operações CRUD de imóveis, clientes e vendas.
+  contact:
+    email: salvadorviegas693@gmail.com
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000/api/v1
+    description: Servidor local
+tags:
+  - name: user
+    description: Dados referentes aos utilizadores
+  - name: cliente
+    description: Dados referentes aos clientes
+  - name: imovel
+    description: Dados referentes aos imóveis
+  - name: vendedor
+    description: Dados referentes aos imóveis
+  - name: favoritos
+    description: Dados referentes aos imóveis
+  - name: transacao
+    description: Dados referentes aos imóveis
+
+
+paths:
+  /user:
+    post:
+      tags:
+        - user
+      summary: Criar um novo user
+      description: Cria um novo user na base de dados
+      operationId: createUser
+      requestBody:
+        description: Criar um novo user
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '201':
+          description: User criado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Erro na criação do user
+        '500':
+          description: Erro interno do servidor
+    get:
+      tags:
+        - user
+      summary: Listar todos os users
+      description: Lista todos os users na base de dados
+      operationId: getAllUsers
+      requestBody:
+        description: Listar todos os users
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '200':
+          description: Lista de users
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Erro na listagem dos users
+        '404':
+          description: Nenhum user encontrado
+        '500':
+          description: Erro interno do servidor
+  
+  /user/{id}:
+    get:
+      tags:
+        - user
+      summary: Lista um user com base no ID
+      description: Lista um user com base no ID
+      operationId: getUserById
+      requestBody:
+        description: Lista um user com base no ID
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '200':
+          description: User encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Erro na listagem do user
+        '404':
+          description: User não encontrado
+        '500':
+          description: Erro interno do servidor
+    delete:
+      tags:
+        - user
+      summary: Elimina um ser
+      description: Elimina um ser da base de dados com base no seu ID
+      operationId: deleteUser
+      requestBody:
+        description: Elimina um ser com base no seu ID na base de dados
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '200':
+          description: User eliminado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Erro na eliminação do user
+        '404':
+          description: User não encontrado
+        '500':
+          description: Erro interno do servidor
+        
+    put:
+      tags:
+        - user
+      summary: Atualizar um user
+      description: Atualiza um user na base da porrada
+      operationId: updateUser
+      requestBody:
+        description: Atualizar um user
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '200':
+          description: User atualizado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Erro na atualização do user
+        '404':
+          description: User não encontrado
+        '500':
+          description: Erro interno do servidor.
+  /user/{nome}:
+    get:
+      tags:
+        - user
+      summary: Lista um user com base no seu nome
+      description: Lista um user com base no nome na base de dados
+      operationId: getUserByName
+      requestBody:
+        description: Lista um user com base no nome
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '200':
+          description: User encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Erro na listagem do user
+        '404':
+          description: User não encontrado
+        '500':
+          description: Erro interno do servidor
+
+  /cliente:
+    post:
+      tags:
+        - cliente
+      summary: Criar um novo cliente
+      description: Cria um novo cliente na base de dados
+      operationId: createCliente
+      requestBody:
+        description: Criar um novo cliente
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+        required: true
+      responses:
+        '201':
+          description: Cliente criado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cliente'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Cliente'
+        '400':
+          description: Erro na criação do cliente
+        '500':
+          description: Erro interno do servidor
+
+    get:
+      tags:
+        - cliente
+      summary: Listar todos os clientes
+      description: Lista todos os clientes na base de dados
+      operationId: getAllClientes
+      requestBody:
+        description: Listar todos os clientes
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+        required: true
+      responses:
+        '200':
+          description: Lista de clientes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cliente'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Cliente'
+        '400':
+          description: Erro na listagem dos clientes
+        '404':
+          description: Nenhum cliente encontrado
+        '500':
+          description: Erro interno do servidor
+    
+  /cliente/{id}:
+    get:
+      tags:
+        - cliente
+      summary: Lista um cliente com base no ID
+      description: Lista um cliente com base no ID
+      operationId: getClienteById
+      requestBody:
+        description: Lista um cliente com base no ID
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+        required: true
+      responses:
+        '200':
+          description: Cliente encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cliente'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Cliente'
+        '400':
+          description: Erro na listagem do cliente
+        '404':
+          description: Cliente não encontrado
+        '500':
+          description: Erro interno do servidor
+
+    delete:
+      tags:
+        - cliente
+      summary: Elimina um cliente
+      description: Elimina um cliente da base de dados com base no seu ID
+      operationId: deleteCliente
+      requestBody:
+        description: Elimina um cliente com base no seu ID na base de dados
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+        required: true
+      responses:
+        '200':
+          description: Cliente eliminado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cliente'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Cliente'
+        '400':
+          description: Erro na eliminação do cliente
+        '404':
+          description: Cliente não encontrado
+        '500':
+          description: Erro interno do servidor
+        
+    put:
+      tags:
+        - cliente
+      summary: Atualizar um cliente
+      description: Atualiza um cliente na base da porrada
+      operationId: updateCliente
+      requestBody:
+        description: Atualizar um cliente
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+        required: true
+      responses:
+        '200':
+          description: Cliente atualizado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cliente'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Cliente'
+        '400':
+          description: Erro na atualização do cliente
+        '404':
+          description: Cliente não encontrado
+        '500':
+          description: Erro interno do servidor.
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        cliente_id:
+          type: integer
+          format: int32
+          example: 1
+        vendedor_id:
+          type: integer
+          format: int32
+          example: 1
+        username:
+          type: string
+          example: theBigMan
+        password:
+          type: string
+          example: 123456
+        data_registo:
+          type: string
+          format: date-time
+          example: 2025-04-05 12:00:00
+        data_atualizacao:
+          type: string
+          format: date-time
+          example: 2025-04-05 12:00:00
+        admin:
+          type: boolean
+          example: 1
+    Imovel:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        tipo_imovel:
+          type: string
+          example: Apartamento
+        local:
+          type: string
+          example: Rua A, 123, Coimbra, Portugal
+        preco:
+          type: number
+          format: float
+          example: 250000.00
+        extra:
+          type: string
+          example: Vista para o mar; Possui piscina e garagem; 4 Quartos e 3 casas de banho
+        vendedor_id:
+          type: integer
+          format: int32
+          example: 1
+        data_registo: 
+          type: string
+          format: date-time
+          example: 2025-04-05 12:00:00
+        data_atualizacao:
+          type: string
+          format: date-time
+          example: 2025-04-05 12:00:00
+    Cliente:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        nome:
+          type: string
+          example: André Pereira
+        email:
+          type: string
+          example: pipidapupu@gmail.com
+        nif:
+          type: integer
+          example: 123456789
+        data_registo: 
+          type: string
+          format: date-time
+          example: 2025-04-05 12:00:00
+        data_atualizacao:
+          type: string
+          format: date-time
+          example: 2025-04-05 12:00:00
+
+    Vendedor:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        nome:
+          type: string
+          example: André Pereira
+        email:
+          type: string
+          example: pipidapupu@gmail.com
+        num_telemovel:
+          type: integer
+          example: 999000888
+        nif:
+          type: integer
+          example: 123456789
+        num_vendas:
+          type: integer
+          format: int32
+          example: 5
+        imovel_id:
+          type: integer
+          format: int32
+          example: 1
+        data_registo: 
+          type: string
+          format: date-time
+          example: 2025-04-05 12:00:00
+        data_atualizacao:
+          type: string
+          format: date-time
+          example: 2025-04-05 12:00:00
+
+    Favoritos:
+      type: object
+      properties:
+        cliente_id:
+          type: integer
+          format: int32
+          example: 1
+        imovel_id:
+          type: integer
+          format: int32
+          example: 1
+        data_registo: 
+          type: string
+          format: date-time
+          example: 2025-04-05 12:00:00
+    Transacao:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        cliente_id:
+          type: integer
+          format: int32
+          example: 1
+        imovel_id:
+          type: integer
+          format: int32
+          example: 1
+        vendedor_id:
+          type: integer
+          format: int32
+          example: 1
+        preco_venda:
+          type: number
+          format: float
+          example: 250000.00
+        data_venda:
+          type: string
+          format: date-time
+          example: 2025-04-05 12:00:00
+    
