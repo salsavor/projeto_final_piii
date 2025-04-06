@@ -1,39 +1,40 @@
 const sequelize = require('sequelize')
 const conexao = require('../config/config.js')
 
-let Transacao = conexao.define(
-    "transacao",
+let Cliente = conexao.define(
+    "cliente",
     {
         id: {
             type: sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        cliente_id: {
+        nome: {
+            type: sequelize.STRING,
+            allowNull: false
+        },
+        email: {
+            type: sequelize.TEXT,
+            allowNull: false,
+            unique: true
+        },
+        nif: {
             type: sequelize.INTEGER,
             allowNull: false
         },
-        imovel_id: {
-            type: sequelize.INTEGER,
-            allowNull: true
-        },
-        vendedor_id: {
-            type: sequelize.INTEGER,
-            allowNull: true
-        },
-        preco_venda: {
-            type: sequelize.FLOAT,
+        data_registo: {
+            type: sequelize.DATE,
             allowNull: false
         },
-        data_venda: {
+        data_atualizacao: {
             type: sequelize.DATE,
             allowNull: false
         }
     },
     {
-        tableName: "transacao",
+        tableName: "cliente",
         timestamps: false
     }
 )
 
-module.exports = Transacao
+module.exports = Cliente

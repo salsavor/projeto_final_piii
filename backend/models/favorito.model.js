@@ -1,8 +1,8 @@
 const sequelize = require('sequelize')
 const conexao = require('../config/config.js')
 
-let Transacao = conexao.define(
-    "transacao",
+let Favorito = conexao.define(
+    "favorito",
     {
         id: {
             type: sequelize.INTEGER,
@@ -11,29 +11,23 @@ let Transacao = conexao.define(
         },
         cliente_id: {
             type: sequelize.INTEGER,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         imovel_id: {
             type: sequelize.INTEGER,
-            allowNull: true
+            allowNull: false,
+            unique: true
         },
-        vendedor_id: {
-            type: sequelize.INTEGER,
-            allowNull: true
-        },
-        preco_venda: {
-            type: sequelize.FLOAT,
-            allowNull: false
-        },
-        data_venda: {
+        data_criado: {
             type: sequelize.DATE,
             allowNull: false
         }
     },
     {
-        tableName: "transacao",
+        tableName: "favorito",
         timestamps: false
     }
 )
 
-module.exports = Transacao
+module.exports = Favorito
