@@ -7,7 +7,7 @@ const middleware = require('../middleware')
 //importação do controller
 const alunoController = require('../controllers/aluno.controller')
 
-//rotas (endpoints) da entidade 'aluno'
+//rotas (endpoints) da entidade 'favorito'
 router.post('/favorito', middleware.checkToken, alunoController.createFavorito)
 
 router.get('/favoritos', middleware.checkToken, alunoController.getAllFavoritos)
