@@ -1,55 +1,98 @@
-import * as React from "react";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import AccessTime from "@mui/icons-material/AccessTime";
-import { purple } from "@mui/material/colors";
-import { styled } from '@mui/material/styles';
+import { AccessTime } from "@mui/icons-material";
+import {
+  createTheme,
+  Grid,
+  Paper,
+  Rating,
+  ThemeProvider,
+  Typography,
+} from "@mui/material";
+import { Box } from "@mui/system";
+import React from "react";
 
-export default function MediaCard() {
-  const ColorButton = styled(Button)(({ theme }) => ({
-    color: theme.palette.getContrastText(purple[500]),
-    backgroundColor: purple[500],
-    "&:hover": {
-      backgroundColor: purple[700],
+const theme = createTheme({
+  components: {
+    MuiTypography: {
+      variants: [
+        {
+          props: {
+            variant: "body2",
+          },
+          style: {
+            fontSize: 11,
+          },
+        },
+        {
+          props: {
+            variant: "body3",
+          },
+          style: {
+            fontSize: 9,
+          },
+        },
+      ],
     },
-  }));
+  },
+});
 
+export default function Card({ tour }) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image="./src/assets/house.webp"
-        title="Casa Fodona"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Casa Fodona
-        </Typography>
-        <Typography variant="body2" sx={{ color: "text.secondary" }}>
-          Esta casa é uma casa fodona, com um monte de coisa legal dentro dela.
-          Ela é muito bonita e tem uma vista incrível.
-        </Typography>
-        <Typography variant="subtitle2" component="p">
-          <AccessTime sx={{ width: 20 }} /> 2 Dias
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button
-          color="inherit"
-          size="small"
-          variant="contained"
-          className="buttoncompra"
-        >
-          Comprar
-        </Button>
-        <Button size="small" variant="outlined">
-          Saber Mais
-        </Button>
-      </CardActions>
-    </Card>
+    <Grid item xs={4} md={3}>
+      <ThemeProvider theme={theme}>
+        <Paper elevation={3} className="paper">
+          <img src={tour.image} alt="" className="img" />
+          <Box
+            sx={{
+              paddingX: 1,
+            }}
+          >
+            <Typography variant="subtitle1" component="h2">
+              {tour.name}
+            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <AccessTime style={{ width: 12.5 }} />
+              <Typography variant="body2" component="p" marginLeft={0.5}>
+                {tour.duration} hours
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+              }}
+              marginTop={3}
+            >
+              <Rating
+                name="size-small"
+                size="small"
+                defaultValue={tour.rating}
+                precision={0.25}
+                readOnly
+              />
+              <Typography variant="body2" component="p" marginLeft={0.5}>
+                {tour.rating}
+              </Typography>
+              <Typography variant="body3" component="p" marginLeft={1.5}>
+                ({tour.numberOfReviews} reviews)
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+              }}
+            >
+              <Typography variant="h6" component="h2" marginTop={0}>
+                From C ${tour.price}
+              </Typography>
+            </Box>
+          </Box>
+        </Paper>
+      </ThemeProvider>
+    </Grid>
   );
 }
