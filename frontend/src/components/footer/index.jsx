@@ -1,97 +1,76 @@
-import { Link } from "react-router-dom";
+import * as React from "react";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import { Facebook, Instagram, Twitter } from "@mui/icons-material";
+import { Box } from "@mui/material";
 
 export default function Footer() {
   return (
-    <header className="header" data-header>
-      <div className="header-bottom">
-        <div className="container">
-          <Link to="http://localhost:5000" className="logo">
-            <img src="/images/logo.png" alt="Homeverse logo" />
-          </Link>
-
-          <nav className="navbar" data-navbar>
-            <div className="navbar-top">
-              <Link to="#" className="logo">
-                <Link to="/views/pages/index.jsx">
-                  <img src="./assets/images/logo.png" alt="Homeverse logo" />
-                </Link>
-              </Link>
-
-              <button
-                className="nav-close-btn"
-                data-nav-close-btn
-                aria-label="Close Menu"
-              >
-                <ion-icon name="close-outline"></ion-icon>
-              </button>
-            </div>
-
-            <div className="navbar-bottom">
-              <ul className="navbar-list">
-                <li>
-                  <Link
-                    to="/views/pages/index.jsx"
-                    className="navbar-link"
-                    data-nav-link
-                  >
-                    Home
-                  </Link>
-                </li>
-
-                <li>
-                  <Link to="#about" className="navbar-link" data-nav-link>
-                    About
-                  </Link>
-                </li>
-
-                <li>
-                  <Link to="/imoveis/create" className="navbar-link" data-nav-link>
-                    Adicionar Imóveis
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    to="http://localhost:5000/utilizadores/create"
-                    className="navbar-link"
-                    data-nav-link
-                  >
-                    Criar Utilizadores
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </nav>
-
-          <div className="header-bottom-actions">
-            <button className="header-bottom-actions-btn" aria-label="Profile">
-              <Link to="/utilizadores">
-                <ion-icon name="person-outline"></ion-icon>
-              </Link>
-
-              <span>Profile</span>
-            </button>
-
-            <button className="header-bottom-actions-btn" aria-label="Cart">
-              <Link to="/imoveis">
-                <ion-icon name="cart-outline"></ion-icon>
-              </Link>
-
-              <span>Carrinho</span>
-            </button>
-
-            <button
-              className="header-bottom-actions-btn"
-              data-nav-open-btn
-              aria-label="Open Menu"
+    <Box
+      component="footer"
+      sx={{
+        backgroundColor: (theme) =>
+          theme.palette.mode === "light"
+            ? theme.palette.grey[200]
+            : theme.palette.grey[800],
+        p: 6,
+      }}
+    >
+      <Container maxWidth="md">
+        <Grid container spacing={5}>
+          <Grid item xs={12} sm={4}>
+            <Typography variant="h6" color="text.primary" gutterBottom>
+              About Us
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              A GS Real Estate é uma agência imobiliária líder <p>
+              especializada em imóveis residenciais e comerciais. </p>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <Typography variant="h6" color="text.primary" gutterBottom>
+              Contact Us
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              A casa do caralho, 123
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Email: gsrealestate@estate.com
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Telefone: +351 239 989 898
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <Typography variant="h6" color="text.primary" gutterBottom>
+              Follow Us
+            </Typography>
+            <Link href="https://www.facebook.com/" color="inherit">
+              <Facebook />
+            </Link>
+            <Link
+              href="https://www.instagram.com/"
+              color="inherit"
+              sx={{ pl: 1, pr: 1 }}
             >
-              <ion-icon name="menu-outline"></ion-icon>
-
-              <span>Menu</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </header>
+              <Instagram />
+            </Link>
+            <Link href="https://www.twitter.com/" color="inherit">
+              <Twitter />
+            </Link>
+          </Grid>
+        </Grid>
+        <Box mt={5}>
+          <Typography variant="body2" color="text.secondary" align="center">
+            {"Copyright © "}
+            <Link color="inherit">GS Real Estate</Link>{" "}
+            {new Date().getFullYear()}
+            {"."}
+          </Typography>
+        </Box>
+      </Container>
+    </Box>
   );
 }
