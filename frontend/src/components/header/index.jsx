@@ -1,10 +1,25 @@
-import React from "react";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
-export default function Header() {
+function ColorSchemesExample() {
   return (
-    <header className="bg-gray-900 text-white text-center py-6 border-b border-gray-700">
-      <h2 className="text-3xl font-bold">Bem-vindo à GS Imobiliária</h2>
-      <p className="text-gray-400 mt-2">Encontre o imóvel ideal para você com confiança e segurança</p>
-    </header>
+    <>
+      <br />
+
+      <Navbar bg="light" data-bs-theme="light">
+        <Container fluid>
+          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#features">About</Nav.Link>
+            <Nav.Link href="#pricing">Adicionar Moveis</Nav.Link>
+            <Nav.Link href="#pricing">Criar Utilizadores</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+    </>
   );
 }
+
+export default ColorSchemesExample;

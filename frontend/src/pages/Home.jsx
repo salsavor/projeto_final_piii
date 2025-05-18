@@ -2,9 +2,8 @@ import React from "react";
 import { Card, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
-import CardCasa from "../components/Card"
-import { motion } from "framer-motion"
-
+import CardCasa from "../components/Card";
+import { motion } from "framer-motion";
 
 const properties = [
   {
@@ -13,7 +12,8 @@ const properties = [
     image: "https://via.placeholder.com/400x250",
     price: "R$ 850.000",
     description: "3 quartos, 2 banheiros, 1 vaga - 120m²",
-    details: "Localizado próximo a metrô, supermercados e escolas. Recém-reformado, com varanda gourmet e acabamento de alto padrão."
+    details:
+      "Localizado próximo a metrô, supermercados e escolas. Recém-reformado, com varanda gourmet e acabamento de alto padrão."
   },
   {
     id: 2,
@@ -21,8 +21,9 @@ const properties = [
     image: "/frontend/src/assets/d31ca31fcf0535c2c6855f56e5d43365.jpg",
     price: "R$ 1.200.000",
     description: "4 quartos, 3 banheiros, 2 vagas - 250m²",
-    details: "Amplo quintal, área de lazer com churrasqueira, sala de estar com lareira, excelente iluminação natural."
-  },
+    details:
+      "Amplo quintal, área de lazer com churrasqueira, sala de estar com lareira, excelente iluminação natural."
+  }
 ];
 
 export default function Home() {
@@ -30,8 +31,11 @@ export default function Home() {
 
   if (selectedProperty) {
     return (
-      <main className="min-h-screen bg-gray-900 text-gray-100 px-6 py-10">
-        <Button onClick={() => setSelectedProperty(null)} className="mb-6">
+      <main className="min-h-screen bg-gray-900 text-gray-100 px-6 py-10 dark">
+        <Button
+          onClick={() => setSelectedProperty(null)}
+          className="mb-6 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-2xl shadow-md hover:shadow-lg hover:from-blue-500 hover:to-blue-400 transition duration-300"
+        >
           Voltar
         </Button>
         <motion.section
@@ -55,7 +59,7 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gray-900 text-gray-100 px-6 py-10">
+    <main className="min-h-screen bg-gray-900 text-gray-100 px-6 py-10 dark">
       <motion.header
         className="text-center mb-10"
         initial={{ opacity: 0, y: -20 }}
@@ -67,8 +71,13 @@ export default function Home() {
       </motion.header>
 
       <div className="flex flex-col md:flex-row items-center gap-4 mb-8 justify-center">
-        <Input placeholder="Buscar imóveis..." className="max-w-md bg-gray-800 text-white border-gray-700" />
-        <Button>Buscar</Button>
+        <Input
+          placeholder="Buscar imóveis..."
+          className="max-w-md bg-gray-800 text-white border-gray-700"
+        />
+        <Button className="bg-gradient-to-r from-green-600 to-green-500 text-white rounded-2xl px-6 py-2 shadow-md hover:shadow-lg hover:from-green-500 hover:to-green-400 transition duration-300">
+          Buscar
+        </Button>
       </div>
 
       <section className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
@@ -83,7 +92,10 @@ export default function Home() {
               <h2 className="text-xl font-semibold">{property.title}</h2>
               <p className="text-gray-400 mt-1">{property.description}</p>
               <p className="text-primary font-bold mt-2">{property.price}</p>
-              <Button className="mt-4 w-full" onClick={() => setSelectedProperty(property)}>
+              <Button
+                className="mt-4 w-full bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-2xl px-5 py-2 shadow-md hover:shadow-lg hover:from-purple-500 hover:to-purple-400 transition duration-300"
+                onClick={() => setSelectedProperty(property)}
+              >
                 Ver detalhes
               </Button>
             </CardContent>
