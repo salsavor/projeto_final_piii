@@ -11,11 +11,9 @@ export default function Navbar() {
 
           <nav className="navbar" data-navbar>
             <div className="navbar-top">
-              <Link to="#" className="logo">
                 <Link to="/views/pages/index.jsx">
                   <img src="./assets/images/logo.png" alt="Homeverse logo" />
                 </Link>
-              </Link>
 
               <button
                 className="nav-close-btn"

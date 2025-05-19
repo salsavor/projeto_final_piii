@@ -20,16 +20,16 @@ export default function Footer() {
     >
       <Container maxWidth="md">
         <Grid container spacing={5}>
-          <Grid item xs={12} sm={4}>
+          <Grid size={{ xs:12, sm:4 }}>
             <Typography variant="h6" color="text.primary" gutterBottom>
               About Us
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              A GS Real Estate é uma agência imobiliária líder <p>
-              especializada em imóveis residenciais e comerciais. </p>
+              A GS Real Estate é uma agência imobiliária líder <br />
+              especializada em imóveis residenciais e comerciais.
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid size={{ xs:12, sm:4 }}>
             <Typography variant="h6" color="text.primary" gutterBottom>
               Contact Us
             </Typography>
@@ -43,7 +43,7 @@ export default function Footer() {
               Telefone: +351 239 989 898
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid size={{ xs:12, sm:4 }}>
             <Typography variant="h6" color="text.primary" gutterBottom>
               Follow Us
             </Typography>
