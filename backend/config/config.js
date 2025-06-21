@@ -1,4 +1,4 @@
 module.exports = {
-    secret: "piiiprojetopratico",
-    timer: 1800000,
-}
+  secret: "piiiprojetopratico",
+  timer: 1800000,
+};

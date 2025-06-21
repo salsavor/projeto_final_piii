@@ -211,7 +211,7 @@ paths:
           description: User não encontrado
         "500":
           description: Erro interno do servidor.
- 
+
   /user/{nome}:
     get:
       tags:
@@ -1081,7 +1081,7 @@ components:
         admin:
           type: boolean
           example: 1
-  
+
     Imovel:
       type: object
       properties:
@@ -1114,7 +1114,7 @@ components:
           type: string
           format: date-time
           example: 2025-04-05 12:00:00
-  
+
     Cliente:
       type: object
       properties:
@@ -1191,7 +1191,7 @@ components:
           type: string
           format: date-time
           example: 2025-04-05 12:00:00
-   
+
     Transacao:
       type: object
       properties:
