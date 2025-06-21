@@ -1,11 +1,21 @@
+const { validationResult } = require("express-validator");
 const Imovel = require("../models/imovel.model");
 
 const endpointsFunction = {};
 
 // Criar um novo imóvel
 endpointsFunction.createImovel = async (req, res) => {
-  const { local, tipo_imovel, preco, vendedor_id } = req.body;
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      status: "error",
+      message: "Dados inválidos",
+      errors: errors.array(),
+      data: null,
+    });
+  }
 
+  const { local, tipo_imovel, preco, vendedor_id } = req.body;
   try {
     const dados = await Imovel.create({
       local,

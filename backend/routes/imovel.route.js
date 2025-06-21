@@ -1,4 +1,6 @@
 const express = require("express");
+const { body, validationResult } = require("express-validator");
+const imovelController = require("../controllers/imovel.controller");
 const router = express.Router();
 
 //importação da middleware
@@ -8,7 +10,23 @@ const middleware = require("../middleware");
 const imovelController = require("../controllers/imovel.controller");
 
 //rotas (endpoints) da entidade 'imovel'
-router.post("/imovel", middleware.checkToken, imovelController.createImovel);
+router.post(
+  "/imovel",
+  [
+    body("local").notEmpty().withMessage("O campo local é obrigatório."),
+    body("tipo_imovel")
+      .notEmpty()
+      .withMessage("O tipo de imóvel é obrigatório."),
+    body("preco")
+      .isFloat({ gt: 0 })
+      .withMessage("O preço deve ser um número positivo."),
+    body("vendedor_id")
+      .isInt()
+      .withMessage("O vendedor_id deve ser um número inteiro."),
+  ],
+  middleware.checkToken,
+  imovelController.createImovel
+);
 
 router.get("/imovels", middleware.checkToken, imovelController.getAllImovels);
 
