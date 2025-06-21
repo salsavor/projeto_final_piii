@@ -140,8 +140,8 @@ paths:
     delete:
       tags:
         - user
-      summary: Elimina um ser
-      description: Elimina um ser da base de dados com base no seu ID
+      summary: Elimina um user
+      description: Elimina um user da base de dados com base no seu ID
       operationId: deleteUser
       parameters:
         - name: id
