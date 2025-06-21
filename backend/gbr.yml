@@ -1,13 +1,16 @@
 openapi: 3.0.3
+
 info:
   title: GB - Real Estate
   description: API relativa a gestão da imobiliária GB - Real Estate, onde é possível realizar operações CRUD de imóveis, clientes e vendas.
   contact:
     email: salvadorviegas693@gmail.com
   version: 1.0.0
+
 servers:
   - url: http://localhost:5000/api/v1
     description: Servidor local
+
 tags:
   - name: user
     description: Dados referentes aos utilizadores
@@ -22,7 +25,6 @@ tags:
   - name: transacao
     description: Dados referentes aos imóveis
 
-
 paths:
   /user:
     post:
@@ -36,27 +38,27 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: "#/components/schemas/User"
           application/xml:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: "#/components/schemas/User"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: "#/components/schemas/User"
         required: true
       responses:
-        '201':
+        "201":
           description: User criado com sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'          
+                $ref: "#/components/schemas/User"
             application/xml:
               schema:
-                $ref: '#/components/schemas/User'
-        '400':
+                $ref: "#/components/schemas/User"
+        "400":
           description: Erro na criação do user
-        '500':
+        "500":
           description: Erro interno do servidor
     get:
       tags:
@@ -64,36 +66,23 @@ paths:
       summary: Listar todos os users
       description: Lista todos os users na base de dados
       operationId: getAllUsers
-      requestBody:
-        description: Listar todos os users
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/User'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/User'
-        required: true
       responses:
-        '200':
+        "200":
           description: Lista de users
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'          
+                $ref: "#/components/schemas/User"
             application/xml:
               schema:
-                $ref: '#/components/schemas/User'
-        '400':
+                $ref: "#/components/schemas/User"
+        "400":
           description: Erro na listagem dos users
-        '404':
+        "404":
           description: Nenhum user encontrado
-        '500':
+        "500":
           description: Erro interno do servidor
-  
+
   /user/{id}:
     get:
       tags:
@@ -101,34 +90,21 @@ paths:
       summary: Lista um user com base no ID
       description: Lista um user com base no ID
       operationId: getUserById
-      requestBody:
-        description: Lista um user com base no ID
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/User'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/User'
-        required: true
       responses:
-        '200':
+        "200":
           description: User encontrado
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'          
+                $ref: "#/components/schemas/User"
             application/xml:
               schema:
-                $ref: '#/components/schemas/User'
-        '400':
+                $ref: "#/components/schemas/User"
+        "400":
           description: Erro na listagem do user
-        '404':
+        "404":
           description: User não encontrado
-        '500':
+        "500":
           description: Erro interno do servidor
     delete:
       tags:
@@ -141,31 +117,31 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: "#/components/schemas/User"
           application/xml:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: "#/components/schemas/User"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: "#/components/schemas/User"
         required: true
       responses:
-        '200':
+        "200":
           description: User eliminado com sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'          
+                $ref: "#/components/schemas/User"
             application/xml:
               schema:
-                $ref: '#/components/schemas/User'
-        '400':
+                $ref: "#/components/schemas/User"
+        "400":
           description: Erro na eliminação do user
-        '404':
+        "404":
           description: User não encontrado
-        '500':
+        "500":
           description: Erro interno do servidor
-        
+
     put:
       tags:
         - user
@@ -177,30 +153,31 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: "#/components/schemas/User"
           application/xml:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: "#/components/schemas/User"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: "#/components/schemas/User"
         required: true
       responses:
-        '200':
+        "200":
           description: User atualizado com sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'          
+                $ref: "#/components/schemas/User"
             application/xml:
               schema:
-                $ref: '#/components/schemas/User'
-        '400':
+                $ref: "#/components/schemas/User"
+        "400":
           description: Erro na atualização do user
-        '404':
+        "404":
           description: User não encontrado
-        '500':
+        "500":
           description: Erro interno do servidor.
+ 
   /user/{nome}:
     get:
       tags:
@@ -208,34 +185,21 @@ paths:
       summary: Lista um user com base no seu nome
       description: Lista um user com base no nome na base de dados
       operationId: getUserByName
-      requestBody:
-        description: Lista um user com base no nome
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/User'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/User'
-        required: true
       responses:
-        '200':
+        "200":
           description: User encontrado
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'          
+                $ref: "#/components/schemas/User"
             application/xml:
               schema:
-                $ref: '#/components/schemas/User'
-        '400':
+                $ref: "#/components/schemas/User"
+        "400":
           description: Erro na listagem do user
-        '404':
+        "404":
           description: User não encontrado
-        '500':
+        "500":
           description: Erro interno do servidor
 
   /cliente:
@@ -250,27 +214,27 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Cliente'
+              $ref: "#/components/schemas/Cliente"
           application/xml:
             schema:
-              $ref: '#/components/schemas/Cliente'
+              $ref: "#/components/schemas/Cliente"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Cliente'
+              $ref: "#/components/schemas/Cliente"
         required: true
       responses:
-        '201':
+        "201":
           description: Cliente criado com sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Cliente'
+                $ref: "#/components/schemas/Cliente"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Cliente'
-        '400':
+                $ref: "#/components/schemas/Cliente"
+        "400":
           description: Erro na criação do cliente
-        '500':
+        "500":
           description: Erro interno do servidor
 
     get:
@@ -279,36 +243,23 @@ paths:
       summary: Listar todos os clientes
       description: Lista todos os clientes na base de dados
       operationId: getAllClientes
-      requestBody:
-        description: Listar todos os clientes
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Cliente'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Cliente'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Cliente'
-        required: true
       responses:
-        '200':
+        "200":
           description: Lista de clientes
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Cliente'          
+                $ref: "#/components/schemas/Cliente"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Cliente'
-        '400':
+                $ref: "#/components/schemas/Cliente"
+        "400":
           description: Erro na listagem dos clientes
-        '404':
+        "404":
           description: Nenhum cliente encontrado
-        '500':
+        "500":
           description: Erro interno do servidor
-    
+
   /cliente/{id}:
     get:
       tags:
@@ -316,34 +267,21 @@ paths:
       summary: Lista um cliente com base no ID
       description: Lista um cliente com base no ID
       operationId: getClienteById
-      requestBody:
-        description: Lista um cliente com base no ID
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Cliente'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Cliente'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Cliente'
-        required: true
       responses:
-        '200':
+        "200":
           description: Cliente encontrado
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Cliente'          
+                $ref: "#/components/schemas/Cliente"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Cliente'
-        '400':
+                $ref: "#/components/schemas/Cliente"
+        "400":
           description: Erro na listagem do cliente
-        '404':
+        "404":
           description: Cliente não encontrado
-        '500':
+        "500":
           description: Erro interno do servidor
 
     delete:
@@ -357,65 +295,65 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Cliente'
+              $ref: "#/components/schemas/Cliente"
           application/xml:
             schema:
-              $ref: '#/components/schemas/Cliente'
+              $ref: "#/components/schemas/Cliente"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Cliente'
+              $ref: "#/components/schemas/Cliente"
         required: true
       responses:
-        '200':
+        "200":
           description: Cliente eliminado com sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Cliente'          
+                $ref: "#/components/schemas/Cliente"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Cliente'
-        '400':
+                $ref: "#/components/schemas/Cliente"
+        "400":
           description: Erro na eliminação do cliente
-        '404':
+        "404":
           description: Cliente não encontrado
-        '500':
+        "500":
           description: Erro interno do servidor
-        
+
     put:
       tags:
         - cliente
       summary: Atualizar um cliente
-      description: Atualiza um cliente 
+      description: Atualiza um cliente
       operationId: updateCliente
       requestBody:
         description: Atualizar um cliente com base no seu ID na base de dados
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Cliente'
+              $ref: "#/components/schemas/Cliente"
           application/xml:
             schema:
-              $ref: '#/components/schemas/Cliente'
+              $ref: "#/components/schemas/Cliente"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Cliente'
+              $ref: "#/components/schemas/Cliente"
         required: true
       responses:
-        '200':
+        "200":
           description: Cliente atualizado com sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Cliente'          
+                $ref: "#/components/schemas/Cliente"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Cliente'
-        '400':
+                $ref: "#/components/schemas/Cliente"
+        "400":
           description: Erro na atualização do cliente
-        '404':
+        "404":
           description: Cliente não encontrado
-        '500':
+        "500":
           description: Erro interno do servidor.
 
   /cliente/{nome}:
@@ -425,38 +363,24 @@ paths:
       summary: Lista um cliente com base no seu nome
       description: Lista um cliente com base no nome na base de dados
       operationId: getClienteByName
-      requestBody:
-        description: Lista um cliente com base no nome
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Cliente'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Cliente'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Cliente'
-        required: true
       responses:
-        '200':
+        "200":
           description: Cliente encontrado
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Cliente'          
+                $ref: "#/components/schemas/Cliente"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Cliente'
-        '400':
+                $ref: "#/components/schemas/Cliente"
+        "400":
           description: Erro na listagem do cliente
-        '404':
+        "404":
           description: Cliente não encontrado
-        '500':
+        "500":
           description: Erro interno do servidor
 
   /vendedor:
-    
     post:
       tags:
         - vendedor
@@ -468,27 +392,27 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Vendedor'
+              $ref: "#/components/schemas/Vendedor"
           application/xml:
             schema:
-              $ref: '#/components/schemas/Vendedor'
+              $ref: "#/components/schemas/Vendedor"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Vendedor'
+              $ref: "#/components/schemas/Vendedor"
         required: true
       responses:
-        '201':
+        "201":
           description: Vendedor criado com sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Vendedor'
+                $ref: "#/components/schemas/Vendedor"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Vendedor'
-        '400':
+                $ref: "#/components/schemas/Vendedor"
+        "400":
           description: Erro na criação do vendedor
-        '500':
+        "500":
           description: Erro interno do servidor
 
     get:
@@ -497,34 +421,21 @@ paths:
       summary: Listar todos os vendedores
       description: Lista todos os vendedores na base de dados
       operationId: getAllVendedores
-      requestBody:
-        description: Listar todos os vendedores
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Vendedor'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Vendedor'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Vendedor'
-        required: true
       responses:
-        '200':
+        "200":
           description: Lista de vendedores
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Vendedor'          
+                $ref: "#/components/schemas/Vendedor"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Vendedor'
-        '400':
+                $ref: "#/components/schemas/Vendedor"
+        "400":
           description: Erro na listagem dos vendedores
-        '404':
+        "404":
           description: Nenhum vendedor encontrado
-        '500':
+        "500":
           description: Erro interno do servidor
 
   /vendedor/{id}:
@@ -534,34 +445,21 @@ paths:
       summary: Lista um vendedor com base no ID
       description: Lista um vendedor com base no ID
       operationId: getVendedorById
-      requestBody:
-        description: Lista um vendedor com base no ID
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Vendedor'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Vendedor'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Vendedor'
-        required: true
       responses:
-        '200':
+        "200":
           description: Vendedor encontrado
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Vendedor'          
+                $ref: "#/components/schemas/Vendedor"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Vendedor'
-        '400':
+                $ref: "#/components/schemas/Vendedor"
+        "400":
           description: Erro na listagem do vendedor
-        '404':
+        "404":
           description: Vendedor não encontrado
-        '500':
+        "500":
           description: Erro interno do servidor
 
     delete:
@@ -575,66 +473,67 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Vendedor'
+              $ref: "#/components/schemas/Vendedor"
           application/xml:
             schema:
-              $ref: '#/components/schemas/Vendedor'
+              $ref: "#/components/schemas/Vendedor"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Vendedor'
+              $ref: "#/components/schemas/Vendedor"
         required: true
       responses:
-        '200':
+        "200":
           description: Vendedor eliminado com sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Vendedor'          
+                $ref: "#/components/schemas/Vendedor"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Vendedor'
-        '400':
+                $ref: "#/components/schemas/Vendedor"
+        "400":
           description: Erro na eliminação do vendedor
-        '404':
+        "404":
           description: Vendedor não encontrado
-        '500':
+        "500":
           description: Erro interno do servidor
-        
+
     put:
       tags:
         - vendedor
       summary: Atualizar um vendedor
-      description: Atualiza um vendedor na 
+      description: Atualiza um vendedor na
       operationId: updateVendedor
       requestBody:
         description: Atualizar um
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Vendedor'
+              $ref: "#/components/schemas/Vendedor"
           application/xml:
             schema:
-              $ref: '#/components/schemas/Vendedor'
+              $ref: "#/components/schemas/Vendedor"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Vendedor'
+              $ref: "#/components/schemas/Vendedor"
         required: true
       responses:
-        '200':
+        "200":
           description: Vendedor atualizado com sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Vendedor'          
+                $ref: "#/components/schemas/Vendedor"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Vendedor'
-        '400':
+                $ref: "#/components/schemas/Vendedor"
+        "400":
           description: Erro na atualização do vendedor
-        '404':
+        "404":
           description: Vendedor não encontrado
-        '500':
+        "500":
           description: Erro interno do servidor.
+
   /vendedor/{nome}:
     get:
       tags:
@@ -642,215 +541,176 @@ paths:
       summary: Lista um vendedor com base no seu nome
       description: Lista um vendedor com base no nome na base de dados
       operationId: getVendedorByName
-      requestBody:
-        description: Lista um vendedor com base no nome
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Vendedor'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Vendedor'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Vendedor'
-        required: true
       responses:
-        '200':
+        "200":
           description: Vendedor encontrado
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Vendedor'          
+                $ref: "#/components/schemas/Vendedor"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Vendedor'
-        '400':
+                $ref: "#/components/schemas/Vendedor"
+        "400":
           description: Erro na listagem do vendedor
-        '404':
+        "404":
           description: Vendedor não encontrado
-        '500':
+        "500":
           description: Erro interno do servidor
-  
+
   /imovel:
-      post:
-        tags:
-          - imovel
-        summary: Criar um novo imóvel
-        description: Cria um novo imóvel na base de dados
-        operationId: createImovel
-        requestBody:
-          description: Criar um novo imóvel
+    post:
+      tags:
+        - imovel
+      summary: Criar um novo imóvel
+      description: Cria um novo imóvel na base de dados
+      operationId: createImovel
+      requestBody:
+        description: Criar um novo imóvel
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Imovel"
+          application/xml:
+            schema:
+              $ref: "#/components/schemas/Imovel"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/Imovel"
+        required: true
+      responses:
+        "201":
+          description: Imóvel criado com sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Imovel'
+                $ref: "#/components/schemas/Imovel"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Imovel'
-            application/x-www-form-urlencoded:
-              schema:
-                $ref: '#/components/schemas/Imovel'
-          required: true
-        responses:
-          '201':
-            description: Imóvel criado com sucesso
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Imovel'
-              application/xml:
-                schema:
-                  $ref: '#/components/schemas/Imovel'
-          '400':
-            description: Erro na criação do imóvel
-          '500':
-            description: Erro interno do servidor
-  
-      get:
-        tags:
-          - imovel
-        summary: Listar todos os imóveis
-        description: Lista todos os imóveis na base de dados
-        operationId: getAllImoveis
-        requestBody:
-          description: Listar todos os imóveis
+                $ref: "#/components/schemas/Imovel"
+        "400":
+          description: Erro na criação do imóvel
+        "500":
+          description: Erro interno do servidor
+
+    get:
+      tags:
+        - imovel
+      summary: Listar todos os imóveis
+      description: Lista todos os imóveis na base de dados
+      operationId: getAllImoveis
+      responses:
+        "200":
+          description: Lista de imóveis
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Imovel'
+                $ref: "#/components/schemas/Imovel"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Imovel'
-            application/x-www-form-urlencoded:
-              schema:
-                $ref: '#/components/schemas/Imovel'
-          required: true
-        responses:
-          '200':
-            description: Lista de imóveis
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Imovel'          
-              application/xml:
-                schema:
-                  $ref: '#/components/schemas/Imovel'
-          '400':
-            description: Erro na listagem dos imóveis
-          '404':
-            description: Nenhum imóvel encontrado
-          '500':
-            description: Erro interno do servidor
+                $ref: "#/components/schemas/Imovel"
+        "400":
+          description: Erro na listagem dos imóveis
+        "404":
+          description: Nenhum imóvel encontrado
+        "500":
+          description: Erro interno do servidor
 
   /imovel/{id}:
-      get:
-        tags:
-          - imovel
-        summary: Lista um imóvel com base no ID
-        description: Lista um imóvel com base no ID
-        operationId: getImovelById
-        requestBody:
-          description: Lista um imóvel com base no ID
+    get:
+      tags:
+        - imovel
+      summary: Lista um imóvel com base no ID
+      description: Lista um imóvel com base no ID
+      operationId: getImovelById
+      responses:
+        "200":
+          description: Imóvel encontrado
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Imovel'
+                $ref: "#/components/schemas/Imovel"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Imovel'
-            application/x-www-form-urlencoded:
-              schema:
-                $ref: '#/components/schemas/Imovel'
-          required: true
-        responses:
-          '200':
-            description: Imóvel encontrado
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Imovel'          
-              application/xml:
-                schema:
-                  $ref: '#/components/schemas/Imovel'
-          '400':
-            description: Erro na listagem do imóvel
-          '404':
-            description: Imóvel não encontrado
-          '500':
-            description: Erro interno do servidor
+                $ref: "#/components/schemas/Imovel"
+        "400":
+          description: Erro na listagem do imóvel
+        "404":
+          description: Imóvel não encontrado
+        "500":
+          description: Erro interno do servidor
 
-      delete:
-        tags:
-          - imovel
-        summary: Elimina um imóvel
-        description: Elimina um imóvel da base de dados com base no seu ID
-        operationId: deleteImovel
-        requestBody:
-          description: Elimina um imóvel com base no seu ID na base de dados
+    delete:
+      tags:
+        - imovel
+      summary: Elimina um imóvel
+      description: Elimina um imóvel da base de dados com base no seu ID
+      operationId: deleteImovel
+      requestBody:
+        description: Elimina um imóvel com base no seu ID na base de dados
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Imovel"
+          application/xml:
+            schema:
+              $ref: "#/components/schemas/Imovel"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/Imovel"
+        required: true
+      responses:
+        "200":
+          description: Imóvel eliminado com sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Imovel'
+                $ref: "#/components/schemas/Imovel"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Imovel'
-            application/x-www-form-urlencoded:
-              schema:
-                $ref: '#/components/schemas/Imovel'
-          required: true
-        responses:
-          '200':
-            description: Imóvel eliminado com sucesso
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Imovel'          
-              application/xml:
-                schema:
-                  $ref: '#/components/schemas/Imovel'
-          '400':
-            description: Erro na eliminação do imóvel
-          '404':
-            description: Imóvel não encontrado
-          '500':
-            description: Erro interno do servidor
-        
-      put:
-        tags:
-          - imovel
-        summary: Atualizar um imóvel
-        description: Atualiza um imóvel com base no seu ID na base de dados
-        operationId: updateImovel
-        requestBody:
-          description: Atualizar um imóvel
+                $ref: "#/components/schemas/Imovel"
+        "400":
+          description: Erro na eliminação do imóvel
+        "404":
+          description: Imóvel não encontrado
+        "500":
+          description: Erro interno do servidor
+
+    put:
+      tags:
+        - imovel
+      summary: Atualizar um imóvel
+      description: Atualiza um imóvel com base no seu ID na base de dados
+      operationId: updateImovel
+      requestBody:
+        description: Atualizar um imóvel
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Imovel"
+          application/xml:
+            schema:
+              $ref: "#/components/schemas/Imovel"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/Imovel"
+        required: true
+      responses:
+        "200":
+          description: Imóvel atualizado com sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Imovel'
+                $ref: "#/components/schemas/Imovel"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Imovel'
-            application/x-www-form-urlencoded:
-              schema:
-                $ref: '#/components/schemas/Imovel'
-          required: true
-        responses:
-          '200':
-            description: Imóvel atualizado com sucesso
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Imovel'          
-              application/xml:
-                schema:
-                  $ref: '#/components/schemas/Imovel'
-          '400':
-            description: Erro na atualização do imóvel
-          '404':
-            description: Imóvel não encontrado
-          '500':
-            description: Erro interno do servidor.
+                $ref: "#/components/schemas/Imovel"
+        "400":
+          description: Erro na atualização do imóvel
+        "404":
+          description: Imóvel não encontrado
+        "500":
+          description: Erro interno do servidor.
 
   /imovel/{local}:
     get:
@@ -859,144 +719,104 @@ paths:
       summary: Lista um imóvel com base no seu local
       description: Lista um imóvel com base no local na base de dados
       operationId: getImovelByLocal
-      requestBody:
-        description: Lista um imóvel com base no local
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Imovel'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/Imovel'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Imovel'
-        required: true
       responses:
-        '200':
+        "200":
           description: Imóvel encontrado
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Imovel'          
+                $ref: "#/components/schemas/Imovel"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Imovel'
-        '400':
+                $ref: "#/components/schemas/Imovel"
+        "400":
           description: Erro na listagem do imóvel
-        '404':
+        "404":
           description: Imóvel não encontrado
-        '500':
+        "500":
           description: Erro interno do servidor
 
   /favorito:
-      
-      post:
-        tags:
-          - favoritos
-        summary: Criar um novo favorito
-        description: Cria um novo favorito na base de dados
-        operationId: createFavorito
-        requestBody:
-          description: Criar um novo favorito
+    post:
+      tags:
+        - favoritos
+      summary: Criar um novo favorito
+      description: Cria um novo favorito na base de dados
+      operationId: createFavorito
+      requestBody:
+        description: Criar um novo favorito
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Favoritos"
+          application/xml:
+            schema:
+              $ref: "#/components/schemas/Favoritos"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/Favoritos"
+        required: true
+      responses:
+        "201":
+          description: Favorito criado com sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Favoritos'
+                $ref: "#/components/schemas/Favoritos"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Favoritos'
-            application/x-www-form-urlencoded:
-              schema:
-                $ref: '#/components/schemas/Favoritos'
-          required: true
-        responses:
-          '201':
-            description: Favorito criado com sucesso
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Favoritos'
-              application/xml:
-                schema:
-                  $ref: '#/components/schemas/Favoritos'
-          '400':
-            description: Erro na criação do favorito
-          '500':
-            description: Erro interno do servidor
-      get:
-        tags:
-          - favoritos
-        summary: Listar todos os favoritos
-        description: Lista todos os favoritos na base de dados
-        operationId: getAllFavoritos
-        requestBody:
-          description: Listar todos os favoritos
+                $ref: "#/components/schemas/Favoritos"
+        "400":
+          description: Erro na criação do favorito
+        "500":
+          description: Erro interno do servidor
+    get:
+      tags:
+        - favoritos
+      summary: Listar todos os favoritos
+      description: Lista todos os favoritos na base de dados
+      operationId: getAllFavoritos
+      responses:
+        "200":
+          description: Lista de favoritos
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Favoritos'
+                $ref: "#/components/schemas/Favoritos"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Favoritos'
-            application/x-www-form-urlencoded:
-              schema:
-                $ref: '#/components/schemas/Favoritos'
-          required: true
-        responses:
-          '200':
-            description: Lista de favoritos
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Favoritos'          
-              application/xml:
-                schema:
-                  $ref: '#/components/schemas/Favoritos'
-          '400':
-            description: Erro na listagem dos favoritos
-          '404':
-            description: Nenhum favorito encontrado
-          '500':
-            description: Erro interno do servidor
+                $ref: "#/components/schemas/Favoritos"
+        "400":
+          description: Erro na listagem dos favoritos
+        "404":
+          description: Nenhum favorito encontrado
+        "500":
+          description: Erro interno do servidor
 
   /favorito/{cliente_id}:
-        
-        get:
-          tags:
-            - favoritos
-          summary: Lista um favorito com base no ID do cliente
-          description: Lista um favorito com base no ID do cliente
-          operationId: getFavoritoByIdCliente
-          requestBody:
-            description: Lista um favorito com base no ID do cliente
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Favoritos'
-              application/xml:
-                schema:
-                  $ref: '#/components/schemas/Favoritos'
-              application/x-www-form-urlencoded:
-                schema:
-                  $ref: '#/components/schemas/Favoritos'
-            required: true
-          responses:
-            '200':
-              description: Favorito encontrado
-              content:
-                application/json:
-                  schema:
-                    $ref: '#/components/schemas/Favoritos'          
-                application/xml:
-                  schema:
-                    $ref: '#/components/schemas/Favoritos'
-            '400':
-              description: Erro na listagem do favorito
-            '404':
-              description: Favorito não encontrado
-            '500':
-              description: Erro interno do servidor 
+    get:
+      tags:
+        - favoritos
+      summary: Lista um favorito com base no ID do cliente
+      description: Lista um favorito com base no ID do cliente
+      operationId: getFavoritoByIdCliente
+      responses:
+        "200":
+          description: Favorito encontrado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Favoritos"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/Favoritos"
+        "400":
+          description: Erro na listagem do favorito
+        "404":
+          description: Favorito não encontrado
+        "500":
+          description: Erro interno do servidor
+
   /transacao:
     post:
       tags:
@@ -1009,29 +829,28 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Transacao'
+              $ref: "#/components/schemas/Transacao"
           application/xml:
             schema:
-              $ref: '#/components/schemas/Transacao'
+              $ref: "#/components/schemas/Transacao"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Transacao'
+              $ref: "#/components/schemas/Transacao"
         required: true
       responses:
-        '201':
+        "201":
           description: Trasacao feita com sucesso
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Transacao'
+                $ref: "#/components/schemas/Transacao"
             application/xml:
               schema:
-                $ref: '#/components/schemas/Transacao'
-        '400':
+                $ref: "#/components/schemas/Transacao"
+        "400":
           description: Erro na transação
-        '500':
+        "500":
           description: Erro interno do servidor
-
 
 components:
   schemas:
@@ -1067,6 +886,7 @@ components:
         admin:
           type: boolean
           example: 1
+  
     Imovel:
       type: object
       properties:
@@ -1091,7 +911,7 @@ components:
           type: integer
           format: int32
           example: 1
-        data_registo: 
+        data_registo:
           type: string
           format: date-time
           example: 2025-04-05 12:00:00
@@ -1099,6 +919,7 @@ components:
           type: string
           format: date-time
           example: 2025-04-05 12:00:00
+  
     Cliente:
       type: object
       properties:
@@ -1115,7 +936,7 @@ components:
         nif:
           type: integer
           example: 123456789
-        data_registo: 
+        data_registo:
           type: string
           format: date-time
           example: 2025-04-05 12:00:00
@@ -1151,7 +972,7 @@ components:
           type: integer
           format: int32
           example: 1
-        data_registo: 
+        data_registo:
           type: string
           format: date-time
           example: 2025-04-05 12:00:00
@@ -1171,10 +992,11 @@ components:
           type: integer
           format: int32
           example: 1
-        data_registo: 
+        data_registo:
           type: string
           format: date-time
           example: 2025-04-05 12:00:00
+   
     Transacao:
       type: object
       properties:
@@ -1202,4 +1024,3 @@ components:
           type: string
           format: date-time
           example: 2025-04-05 12:00:00
-    
