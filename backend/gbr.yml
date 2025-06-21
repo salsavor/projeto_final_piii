@@ -170,7 +170,7 @@ paths:
       tags:
         - user
       summary: Atualizar um user
-      description: Atualiza um user na base da porrada
+      description: Atualiza um user na com base no seu ID na base de dados
       operationId: updateUser
       requestBody:
         description: Atualizar um user
@@ -386,10 +386,10 @@ paths:
       tags:
         - cliente
       summary: Atualizar um cliente
-      description: Atualiza um cliente na base da porrada
+      description: Atualiza um cliente 
       operationId: updateCliente
       requestBody:
-        description: Atualizar um cliente
+        description: Atualizar um cliente com base no seu ID na base de dados
         content:
           application/json:
             schema:
@@ -604,7 +604,7 @@ paths:
       tags:
         - vendedor
       summary: Atualizar um vendedor
-      description: Atualiza um vendedor na base da porrada
+      description: Atualiza um vendedor na 
       operationId: updateVendedor
       requestBody:
         description: Atualizar um
@@ -820,7 +820,7 @@ paths:
         tags:
           - imovel
         summary: Atualizar um imóvel
-        description: Atualiza um imóvel na base da porrada
+        description: Atualiza um imóvel com base no seu ID na base de dados
         operationId: updateImovel
         requestBody:
           description: Atualizar um imóvel
