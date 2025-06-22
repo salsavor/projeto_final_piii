@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "../../App.css";
 
 export default function Header() {
   return (
@@ -12,6 +13,14 @@ export default function Header() {
           gap: "2rem",
         }}
       >
+        <Link to="/">
+          <img
+            src="/logo.webp"
+            alt="Logo"
+            style={{ width: "50px", height: "50px" }}
+          /> 
+        </Link>
+        
         <Link
           to="/"
           style={{
@@ -41,7 +50,9 @@ export default function Header() {
           </Link>
         </nav>
       </header>
-    <br /><br /><br />
+      <br />
+      <br />
+      <br />
     </>
   );
 }

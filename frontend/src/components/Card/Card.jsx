@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import "../App.css";
+import "../../App.css";
 
 const theme = createTheme({
   components: {
@@ -89,7 +89,7 @@ export default function Card({ tour }) {
                 }}
               >
                 <Typography variant="h6" component="h2" marginTop={0}>
-                  From C ${tour.price}
+                  Desde {tour.price}€
                 </Typography>
               </Box>
             </Box>
