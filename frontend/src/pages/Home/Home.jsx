@@ -1,8 +1,8 @@
 import { Container, Grid, Typography } from "@mui/material";
 import React from "react";
-import cities from "../data.json";
-import Card from "../components/Card";
-import '../App.css';
+import cities from "../../data.json";
+import Card from "../../components/Card.jsx";
+import '../../App.css';
 
 
 export default function Home() {
@@ -27,6 +27,8 @@ export default function Home() {
           </>
         ))}
       </Container>
+      <br />
+      <br />
     </>
   );
 }

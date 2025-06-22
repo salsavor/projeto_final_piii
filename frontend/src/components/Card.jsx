@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import "../App.css";
 
 const theme = createTheme({
   components: {
@@ -37,62 +38,64 @@ const theme = createTheme({
 
 export default function Card({ tour }) {
   return (
-    <Grid size={{ xs: 4, md: 3 }}>
-      <ThemeProvider theme={theme}>
-        <Paper elevation={3} className="paper">
-          <img src={tour.image} alt="" className="img" />
-          <Box
-            sx={{
-              paddingX: 1,
-            }}
-          >
-            <Typography variant="subtitle1" component="h2">
-              {tour.name}
-            </Typography>
+    <>
+      <Grid size={{ xs: 4, md: 3 }}>
+        <ThemeProvider theme={theme}>
+          <Paper elevation={3} className="paper">
+            <img src={tour.image} alt="" className="img" />
             <Box
               sx={{
-                display: "flex",
-                alignItems: "center",
+                paddingX: 1,
               }}
             >
-              <AccessTime style={{ width: 12.5 }} />
-              <Typography variant="body2" component="p" marginLeft={0.5}>
-                {tour.duration} hours
+              <Typography variant="subtitle1" component="h2">
+                {tour.name}
               </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <AccessTime style={{ width: 12.5 }} />
+                <Typography variant="body2" component="p" marginLeft={0.5}>
+                  {tour.duration} hours
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                }}
+                marginTop={3}
+              >
+                <Rating
+                  name="size-small"
+                  size="small"
+                  defaultValue={tour.rating}
+                  precision={0.25}
+                  readOnly
+                />
+                <Typography variant="body2" component="p" marginLeft={0.5}>
+                  {tour.rating}
+                </Typography>
+                <Typography variant="body3" component="p" marginLeft={1.5}>
+                  ({tour.numberOfReviews} reviews)
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                }}
+              >
+                <Typography variant="h6" component="h2" marginTop={0}>
+                  From C ${tour.price}
+                </Typography>
+              </Box>
             </Box>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-              }}
-              marginTop={3}
-            >
-              <Rating
-                name="size-small"
-                size="small"
-                defaultValue={tour.rating}
-                precision={0.25}
-                readOnly
-              />
-              <Typography variant="body2" component="p" marginLeft={0.5}>
-                {tour.rating}
-              </Typography>
-              <Typography variant="body3" component="p" marginLeft={1.5}>
-                ({tour.numberOfReviews} reviews)
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-              }}
-            >
-              <Typography variant="h6" component="h2" marginTop={0}>
-                From C ${tour.price}
-              </Typography>
-            </Box>
-          </Box>
-        </Paper>
-      </ThemeProvider>
-    </Grid>
+          </Paper>
+        </ThemeProvider>
+      </Grid>
+    </>
   );
 }
