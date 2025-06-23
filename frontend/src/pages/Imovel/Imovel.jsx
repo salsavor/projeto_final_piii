@@ -42,5 +42,3 @@ export default function ImovelPage() {
     </div>
   );
 };
-
-export default PropertyDetailPage;
