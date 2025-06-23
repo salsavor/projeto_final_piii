@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: 321
-      MYSQL_DATABASE: projeto_aulas
+      MYSQL_DATABASE: gs_real_estate
     ports:
       - "3306:3306"
     volumes:
@@ -47,3 +47,5 @@ services:
     volumes:
       - ./backend:/app
       - /app/node_modules
+    depends_on:
+      - mysql

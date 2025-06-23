@@ -12,6 +12,12 @@ import Imovel from "./pages/Imovel/Imovel.jsx";
 import Perfil from "./pages/Perfil/Perfil.jsx";
 import Contact from "./pages/Contact/Contact.jsx";
 
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
+
 function App() {
   return (
     <>

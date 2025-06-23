@@ -4,13 +4,14 @@ info:
   title: GS - Real Estate
   description: API relativa a gestão da imobiliária GS - Real Estate, onde é possível realizar operações CRUD de imóveis, clientes e vendas.
   contact:
-    email: salvadorviegas693@gmail.com
+    email: gsrealestate@gmail.com
   version: 1.0.0
 
 servers:
   - url: http://localhost:5000/api/v1
     description: Servidor local
-
+security:
+  - bearerAuth: []
 tags:
   - name: user
     description: Dados referentes aos utilizadores
@@ -1035,7 +1036,6 @@ paths:
           description: Favorito não encontrado
         "500":
           description: Erro interno do servidor
-
 
   /transacao:
     post:

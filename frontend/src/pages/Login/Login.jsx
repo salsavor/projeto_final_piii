@@ -153,9 +153,9 @@ export default function Login() {
           )}
           <Typography variant="body2" sx={{ mt: 2 }}>
             Não tem uma conta?{" "}
-            <a href="/register" style={{ color: "#1976d2", fontWeight: "bold" }}>
+            <Link to="/register" style={{ color: "#1976d2", fontWeight: "bold" }}>
               Registe-se
-            </a>
+            </Link>
           </Typography>
         </Paper>
       </Box>
