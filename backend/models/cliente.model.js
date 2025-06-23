@@ -29,16 +29,7 @@ let Cliente = conexao.define(
     password: {
       type: sequelize.STRING,
       allowNull: false,
-    },
-    data_registo: {
-      type: sequelize.DATE,
-      allowNull: false,
-    },
-    data_atualizacao: {
-      type: sequelize.DATE,
-      allowNull: false,
-      // defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
-    },
+    }
   },
   {
     tableName: "cliente",

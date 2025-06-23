@@ -28,20 +28,18 @@ let Imovel = conexao.define(
     vendedor_id: {
       type: sequelize.INTEGER,
       allowNull: false,
-    },
-    data_registo: {
-      type: sequelize.DATE,
-      allowNull: false,
-    },
-    data_atualizacao: {
-      type: sequelize.DATE,
-      allowNull: false,
-    },
+    }
   },
   {
     tableName: "imovel",
     timestamps: false,
   }
 );
+
+Imovel.belongsTo(Vendedor, {
+  foreignKey: "vendedor_id", // Nome da chave estrangeira na tabela imovel
+  targetKey: "id", // Chave primária no modelo vendedor
+  as: "imovel_vendedor", // Alias para a relação
+});
 
 module.exports = Imovel;

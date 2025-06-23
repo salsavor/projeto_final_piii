@@ -11,8 +11,6 @@ import Pagamento from "./pages/Pagamento/Pagamento.jsx";
 import Imovel from "./pages/Imovel/Imovel.jsx";
 import Perfil from "./pages/Perfil/Perfil.jsx";
 import Contact from "./pages/Contact/Contact.jsx";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.min.js";
 
 function App() {
   return (

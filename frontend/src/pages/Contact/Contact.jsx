@@ -131,7 +131,7 @@ const ContactPage = () => {
                 type="submit" // Define o botão como tipo submit para formulários
                 variant="contained" // Estilo de botão "preenchido"
                 sx={{
-                  backgroundColor: "#0000aa", // Cor de fundo do botão (azul escuro)
+                  backgroundColor: "#00001a", // Cor de fundo do botão (azul escuro)
                   color: "#fff", // Cor do texto do botão
                   fontWeight: "bold", // Texto em negrito
                   mt: 2, // Margem superior

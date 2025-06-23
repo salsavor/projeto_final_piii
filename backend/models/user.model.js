@@ -26,17 +26,10 @@ let User = conexao.define(
       type: sequelize.TEXT,
       allowNull: false,
     },
-    data_registo: {
-      type: sequelize.DATE,
-      allowNull: false,
-    },
-    data_atualizacao: {
-      type: sequelize.DATE,
-      allowNull: false,
-    },
     admin: {
       type: sequelize.BOOLEAN,
       allowNull: true,
+      defaultValue: false,
     },
   },
   {

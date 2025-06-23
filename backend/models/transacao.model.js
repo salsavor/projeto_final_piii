@@ -20,7 +20,6 @@ let Transacao = conexao.define(
     vendedor_id: {
       type: sequelize.INTEGER,
       allowNull: true,
-      
     },
     preco_venda: {
       type: sequelize.FLOAT,
@@ -36,5 +35,23 @@ let Transacao = conexao.define(
     timestamps: false,
   }
 );
+
+Transacao.belongsTo(Vendedor, {
+  foreignKey: "vendedor_id", // Nome da chave estrangeira na tabela transacao
+  targetKey: "id", // Chave primária no modelo vendedor
+  as: "transacao_vendedor", // Alias para a relação
+});
+
+Transacao.belongsTo(Cliente, {
+  foreignKey: "cliente_id", // Nome da chave estrangeira na tabela transacao
+  targetKey: "id", // Chave primária no modelo cliente
+  as: "transacao_cliente", // Alias para a relação
+});
+
+Transacao.belongsTo(Imovel, {
+  foreignKey: "imovel_id", // Nome da chave estrangeira na tabela transacao
+  targetKey: "id", // Chave primária no modelo imovel
+  as: "transacao_imovel", // Alias para a relação
+});
 
 module.exports = Transacao;

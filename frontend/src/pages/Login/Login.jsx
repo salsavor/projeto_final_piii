@@ -2,7 +2,11 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, Paper, InputAdornment, IconButton } from "@mui/material";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import "../../App.css";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
@@ -14,6 +18,7 @@ export default function Login() {
   const { login } = useAuth();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [showPassword, setShowPassword] = React.useState(false);
   const [error, setError] = React.useState("");
 
   const handleLogin = async (e) => {
@@ -28,23 +33,45 @@ export default function Login() {
   };
 
   return (
-    <>
-      <Container>
-        <Box
+    <Container maxWidth="sm">
+      <Box
+        sx={{
+          minHeight: "80vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          p: 0,
+        }}
+      >
+        <Paper
+          elevation={8}
           sx={{
+            p: 5,
+            borderRadius: 4,
+            width: "100%",
+            maxWidth: 400,
             display: "flex",
-            justifyContent: "center",
             flexDirection: "column",
             alignItems: "center",
-            marginTop: 5,
-            padding: 2,
-            border: "1px solid #ccc",
-            borderRadius: 2,
-            backgroundColor: "#f5f5f5",
+            gap: 2,
+            boxShadow: "0 8px 32px 0 rgba(31,38,135,0.15)",
           }}
         >
-          <br />
-          <Typography variant="h4" gutterBottom style={{ fontWeight: "bold" }}>
+          <Box
+            sx={{
+              background: "#1976d2",
+              borderRadius: "50%",
+              width: 60,
+              height: 60,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              mb: 2,
+            }}
+          >
+            <LockOutlinedIcon sx={{ color: "#fff", fontSize: 32 }} />
+          </Box>
+          <Typography variant="h4" fontWeight="bold" color="primary" gutterBottom>
             Login
           </Typography>
           <form
@@ -54,41 +81,69 @@ export default function Login() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              gap: 16,
             }}
+            autoComplete="off"
           >
             <TextField
               label="Email"
               variant="outlined"
               margin="normal"
-              sx={{ width: "50%" }}
+              fullWidth
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <EmailOutlinedIcon color="primary" />
+                  </InputAdornment>
+                ),
+              }}
             />
             <TextField
               label="Password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               variant="outlined"
               margin="normal"
-              sx={{ width: "50%" }}
+              fullWidth
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LockOutlinedIcon color="primary" />
+                  </InputAdornment>
+                ),
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      onClick={() => setShowPassword((show) => !show)}
+                      edge="end"
+                      aria-label="toggle password visibility"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
             />
             <Button
               type="submit"
               variant="contained"
               color="primary"
+              fullWidth
+              size="large"
               sx={{
-                width: "50%",
-                backgroundColor: "darkblue",
-                "&:hover": {
-                  backgroundColor: "#001a66",
-                },
                 mt: 2,
+                fontWeight: "bold",
+                letterSpacing: 1,
+                borderRadius: 2,
+                boxShadow: "0 2px 8px 0 rgba(25, 118, 210, 0.15)",
               }}
             >
-              Login
+              Entrar
             </Button>
           </form>
           {error && (
@@ -96,15 +151,14 @@ export default function Login() {
               {error}
             </Typography>
           )}
-          <Typography variant="body2" style={{ marginTop: 10 }}>
+          <Typography variant="body2" sx={{ mt: 2 }}>
             Não tem uma conta?{" "}
-            <a href="/register" color="#06048c">
-              Registo
+            <a href="/register" style={{ color: "#1976d2", fontWeight: "bold" }}>
+              Registe-se
             </a>
           </Typography>
-          <br />
-        </Box>
-      </Container>
-    </>
+        </Paper>
+      </Box>
+    </Container>
   );
 }

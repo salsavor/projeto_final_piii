@@ -9,7 +9,7 @@ export default function ImovelPage() {
 
   useEffect(() => {
     // Substitui pelo endpoint real do teu backend
-    fetch(`http://localhost:5000/api/imoveis/${id}`)
+    fetch(`http://localhost:5000/api/imovel/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setImovel(data.data); // ajusta conforme a estrutura da tua resposta
@@ -36,7 +36,7 @@ export default function ImovelPage() {
           <h2>{imovel.titulo || "Título do Imóvel"}</h2>
           <p>{imovel.descricao || "Descrição do imóvel."}</p>
           <p>Preço: {imovel.preco ? `€ ${imovel.preco}` : "N/A"}</p>
-          <button className="btn btn-primary">Adicionar ao Carrinho</button>
+          <button className="btn btn-primary">Comprar</button>
         </div>
       </div>
     </div>
