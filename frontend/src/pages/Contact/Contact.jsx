@@ -44,7 +44,7 @@ const ContactPage = () => {
           {/* Box que contém o formulário, limitando sua largura para melhor legibilidade */}
           <Box
             sx={{
-              width: { xs: "100%", sm: "70vh", md: "70vh" },
+              width: { xs: "70vh", sm: "70vh", md: "71vh" },
               maxWidth: "800px", // aumente aqui para deixar o formulário mais largo
             }}
           >

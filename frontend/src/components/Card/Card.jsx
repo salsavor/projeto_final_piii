@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../App.css";
 
 const theme = createTheme({
@@ -38,37 +39,25 @@ const theme = createTheme({
 
 export default function Card({ tour }) {
   return (
-    <>
-      <Grid size={{ xs: 4, md: 3 }}>
-        <ThemeProvider theme={theme}>
-          <Paper elevation={3} className="paper">
+    <Grid size={{ xs: 4, md: 3 }}>
+      <ThemeProvider theme={theme}>
+        <Link
+          to={`${tour.id}/imovel/`}
+          style={{ textDecoration: "none", color: "inherit", display: "block" }}
+        >
+          <Paper elevation={3} className="paper" style={{ cursor: "pointer" }}>
             <img src={tour.image} alt="" className="img" />
-            <Box
-              sx={{
-                paddingX: 1,
-              }}
-            >
+            <Box sx={{ paddingX: 1 }}>
               <Typography variant="subtitle1" component="h2">
                 {tour.name}
               </Typography>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
+              <Box sx={{ display: "flex", alignItems: "center" }}>
                 <AccessTime style={{ width: 12.5 }} />
                 <Typography variant="body2" component="p" marginLeft={0.5}>
                   {tour.duration} hours
                 </Typography>
               </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                }}
-                marginTop={3}
-              >
+              <Box sx={{ display: "flex", alignItems: "center" }} marginTop={3}>
                 <Rating
                   name="size-small"
                   size="small"
@@ -83,19 +72,15 @@ export default function Card({ tour }) {
                   ({tour.numberOfReviews} reviews)
                 </Typography>
               </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                }}
-              >
+              <Box sx={{ display: "flex" }}>
                 <Typography variant="h6" component="h2" marginTop={0}>
                   Desde {tour.price}€
                 </Typography>
               </Box>
             </Box>
           </Paper>
-        </ThemeProvider>
-      </Grid>
-    </>
+        </Link>
+      </ThemeProvider>
+    </Grid>
   );
 }
