@@ -1,66 +1,60 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import { Container, Typography } from "@mui/material";
+import "../../App.css";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 
-export default function AuthPage() {
-  const [isLogin, setIsLogin] = useState(true);
-
-  const toggleMode = () => setIsLogin(!isLogin);
-
+export default function Login() {
   return (
-    <main className="min-h-screen bg-gray-900 text-black-100 flex items-center justify-center px-4">
-      <motion.div
-        className="bg-gray-800 rounded-2xl shadow-lg p-8 w-full max-w-md"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+    <Container>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "column",
+          alignItems: "center",
+          marginTop: 5,
+          padding: 2,
+          border: "1px solid #ccc",
+          borderRadius: 2,
+          backgroundColor: "#f5f5f5",
+        }}
       >
-        <h1 className="text-2xl text-black font-bold text-center mb-6">
-          {isLogin ? "Entrar na conta" : "Criar uma conta"}
-        </h1>
-
-        <form className="space-y-4">
-          {!isLogin && (
-            <div>
-              <label className="block mb-1">Nome completo</label>
-              <input
-                type="text"
-                placeholder="Seu nome"
-                className="w-full px-4 py-2 rounded-md bg-gray-700 text-black border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-          )}
-          <div>
-            <label className="block mb-1">Email</label>
-            <input
-              type="email"
-              placeholder="seu@email.com"
-              className="w-full px-4 py-2 rounded-md bg-gray-700 text-black border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <div>
-            <label className="block mb-1">Senha</label>
-            <input
-              type="password"
-              placeholder="********"
-              className="w-full px-4 py-2 rounded-md bg-gray-700 text-black border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-black font-semibold py-2 px-4 rounded-md transition"
-          >
-            {isLogin ? "Entrar" : "Cadastrar"}
-          </button>
-        </form>
-
-        <p className="text-center text-sm text-gray-400 mt-4">
-          {isLogin ? "Não tem uma conta?" : "Já tem uma conta?"} {" "}
-          <button onClick={toggleMode} className="text-blue-400 hover:underline">
-            {isLogin ? "Cadastre-se" : "Entrar"}
-          </button>
-        </p>
-      </motion.div>
-    </main>
+        <br />
+        <Typography variant="h4" gutterBottom style={{ fontWeight: "bold" }}>
+          Login
+        </Typography>
+        <TextField label="Email" variant="outlined"  margin="normal" sx={{ width: "50%" }}/>
+        <TextField
+          label="Password"
+          type="password"
+          variant="outlined"
+          margin="normal"
+          sx={{ width: "50%" }}
+        />
+        <Button
+          variant="contained"
+          color="primary"
+          sx={{
+            width: "50%",
+            backgroundColor: "darkblue",
+            "&:hover": {
+              backgroundColor: "#001a66",
+            },
+          }}
+        >
+          Login
+        </Button>
+        <Typography variant="body2" style={{ marginTop: 10}}>
+          Não tem uma conta? <a href="/register" color="#06048c">Registo</a>
+        </Typography>
+        <br />
+      </Box>
+    </Container>
   );
 }

@@ -1,8 +1,8 @@
 openapi: 3.0.3
 
 info:
-  title: GB - Real Estate
-  description: API relativa a gestão da imobiliária GB - Real Estate, onde é possível realizar operações CRUD de imóveis, clientes e vendas.
+  title: GS - Real Estate
+  description: API relativa a gestão da imobiliária GS - Real Estate, onde é possível realizar operações CRUD de imóveis, clientes e vendas.
   contact:
     email: salvadorviegas693@gmail.com
   version: 1.0.0

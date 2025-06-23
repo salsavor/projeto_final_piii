@@ -30,7 +30,7 @@ export default function Header() {
             color: "#333",
           }}
         >
-          GB Real Estate
+          GS Real Estate
         </Link>
         <nav style={{ display: "flex", gap: "1rem" }}>
           <Link to="/" className="nav-link">
@@ -50,9 +50,6 @@ export default function Header() {
           </Link>
         </nav>
       </header>
-      <br />
-      <br />
-      <br />
     </>
   );
 }
