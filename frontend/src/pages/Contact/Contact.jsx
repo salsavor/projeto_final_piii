@@ -33,7 +33,7 @@ const ContactPage = () => {
           xs={12}
           md={6}
           sx={{
-            p: { xs: 6, md: 10 },
+            p: { xs: 4, md: 8 },
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -44,7 +44,7 @@ const ContactPage = () => {
           {/* Box que contém o formulário, limitando sua largura para melhor legibilidade */}
           <Box
             sx={{
-              width: { xs: "100%", sm: "100%", md: "100%" },
+              width: { xs: "100%", sm: "70vh", md: "70vh" },
               maxWidth: "800px", // aumente aqui para deixar o formulário mais largo
             }}
           >
