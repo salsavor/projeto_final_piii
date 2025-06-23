@@ -20,6 +20,7 @@ let Transacao = conexao.define(
     vendedor_id: {
       type: sequelize.INTEGER,
       allowNull: true,
+      
     },
     preco_venda: {
       type: sequelize.FLOAT,

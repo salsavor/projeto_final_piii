@@ -22,6 +22,14 @@ let Cliente = conexao.define(
       type: sequelize.INTEGER,
       allowNull: false,
     },
+    ocupacao: {
+      type: sequelize.STRING,
+      allowNull: false,
+    },
+    password: {
+      type: sequelize.STRING,
+      allowNull: false,
+    },
     data_registo: {
       type: sequelize.DATE,
       allowNull: false,
@@ -29,6 +37,7 @@ let Cliente = conexao.define(
     data_atualizacao: {
       type: sequelize.DATE,
       allowNull: false,
+      // defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
     },
   },
   {

@@ -1,3 +1,6 @@
+//utilidade do user ainda não está definida
+//mas pode ser utilizado para armazenar informações de clientes e vendedores
+
 /*
 user: createUser (post)
 user: getAllUsers (get)

@@ -5,7 +5,7 @@ services:
     container_name: mysql
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: 
+      MYSQL_ROOT_PASSWORD: 321
       MYSQL_DATABASE: projeto_aulas
     ports:
       - "3306:3306"

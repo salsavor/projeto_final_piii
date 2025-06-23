@@ -7,6 +7,12 @@ const middleware = require("../middleware");
 //importação do controller
 const clienteController = require("../controllers/cliente.controller");
 
+// backend/routes/auth.routes.js
+router.post("/register", async (req, res) => {
+  const { nome, email, nif, ocupacao, password } = req.body;
+  // Valida e guarda estes dados na base de dados
+});
+
 //rotas (endpoints) da entidade 'cliente'
 router.post("/cliente", middleware.checkToken, clienteController.createCliente);
 
