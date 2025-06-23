@@ -14,7 +14,7 @@ let Imovel = conexao.define(
       allowNull: false,
     },
     tipo_imovel: {
-      type: sequelize.BOOLEAN,
+      type: sequelize.TEXT,
       allowNull: false,
     },
     local: {
