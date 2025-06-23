@@ -997,6 +997,46 @@ paths:
         "500":
           description: Erro interno do servidor
 
+  /favorito/{cliente_id}/{imovel_id}:
+    delete:
+      tags:
+        - favoritos
+      summary: Elimina um favorito
+      description: Elimina um favorito da base de dados com base no ID do cliente e do imóvel
+      operationId: deleteFavorito
+      parameters:
+        - name: cliente_id
+          in: path
+          required: true
+          description: ID do cliente a ser eliminado
+          schema:
+            type: integer
+            format: int32
+        - name: imovel_id
+          in: path
+          required: true
+          description: ID do imóvel a ser eliminado do favorito
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: Favorito eliminado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Favoritos"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/Favoritos"
+        "400":
+          description: Erro na eliminação do favorito
+        "404":
+          description: Favorito não encontrado
+        "500":
+          description: Erro interno do servidor
+
+
   /transacao:
     post:
       tags:
