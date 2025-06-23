@@ -1,11 +1,11 @@
 [
   {
     "id": 1,
-    "name": "Niagara Falls",
+    "name": "Casas",
     "tours": [
       {
         "id": 1,
-        "name": "Immerse into the Falls",
+        "name": "Casa Grande",
         "duration": 5,
         "rating": 4.5,
         "numberOfReviews": 462,
@@ -14,7 +14,7 @@
       },
       {
         "id": 2,
-        "name": "Helicopter Over the Falls",
+        "name": "Casa Moderna",
         "duration": 8,
         "rating": 3.5,
         "numberOfReviews": 641,
@@ -23,7 +23,7 @@
       },
       {
         "id": 3,
-        "name": "The Falls at Night",
+        "name": "Casa de Campo",
         "duration": 2,
         "rating": 4.5,
         "numberOfReviews": 133,
@@ -32,7 +32,7 @@
       },
       {
         "id": 4,
-        "name": "Immerse into the Falls",
+        "name": "Casa de Praia",
         "duration": 5,
         "rating": 4.5,
         "numberOfReviews": 462,
@@ -43,11 +43,11 @@
   },
   {
     "id": 2,
-    "name": "Las Vegas",
+    "name": "Apartamentos",
     "tours": [
       {
         "id": 4,
-        "name": "All Around the World",
+        "name": "Apartamento de Luxo",
         "duration": 5,
         "rating": 4.5,
         "numberOfReviews": 462,
@@ -56,7 +56,7 @@
       },
       {
         "id": 5,
-        "name": "View the Casinos",
+        "name": "Apartamento Moderno",
         "duration": 5,
         "rating": 4.5,
         "numberOfReviews": 462,
@@ -65,7 +65,7 @@
       },
       {
         "id": 6,
-        "name": "Show me the Magic",
+        "name": "Apartamento Compacto",
         "duration": 8,
         "rating": 3.5,
         "numberOfReviews": 641,
@@ -74,7 +74,7 @@
       },
       {
         "id": 7,
-        "name": "The Falls at Night",
+        "name": "Apartamento Estúdio",
         "duration": 2,
         "rating": 4.5,
         "numberOfReviews": 133,

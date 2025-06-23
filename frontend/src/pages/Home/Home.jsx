@@ -17,7 +17,7 @@ export default function Home() {
               marginBottom={3}
               marginTop={5}
             >
-              Top {city.name} Tours
+              Top {city.name} 
             </Typography>
             <Grid container spacing={5}>
               {city.tours.map((tour) => (
