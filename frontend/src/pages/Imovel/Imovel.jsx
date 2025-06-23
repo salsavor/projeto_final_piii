@@ -36,9 +36,11 @@ export default function ImovelPage() {
           <h2>{imovel.titulo || "Título do Imóvel"}</h2>
           <p>{imovel.descricao || "Descrição do imóvel."}</p>
           <p>Preço: {imovel.preco ? `€ ${imovel.preco}` : "N/A"}</p>
-          <button className="btn btn-primary">Comprar</button>
+          <button className="btn btn-primary">Adicionar ao Carrinho</button>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default PropertyDetailPage;
